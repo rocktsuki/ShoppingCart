@@ -27,7 +27,18 @@ public class ShoppingCart {
 
     public double calculate() {
         double total = 0;
-            total = total + books.stream().mapToDouble(Book::getQty).sum() * 100;
+        total = total + books.stream().mapToDouble(Book::getQty).sum() * 100;
+        switch (books.size()) {
+            case 2:
+                total = total * 0.95;
+                break;
+            case 1:
+                total = total * 1;
+                break;
+            case 0:
+                total = 0;
+                break;
+        }
         return total;
     }
 }
