@@ -31,7 +31,7 @@ public class ShoppingCart {
         return total;
     }
 
-    private double getDiscount(int bookQty){
+    private double getDiscount(int bookQty) {
         double discount = 0;
         switch (bookQty) {
             case 5:

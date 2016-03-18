@@ -52,7 +52,7 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void  一二三四集各買了一本_價格應為320元() {
+    public void 一二三四集各買了一本_價格應為320元() {
         cart.add(new Book("HarryPotterVol.1", 1));
         cart.add(new Book("HarryPotterVol.2", 1));
         cart.add(new Book("HarryPotterVol.3", 1));
@@ -65,7 +65,7 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void  一次買了整套_一二三四五集各買了一本_價格應為375元() {
+    public void 一次買了整套_一二三四五集各買了一本_價格應為375元() {
         cart.add(new Book("HarryPotterVol.1", 1));
         cart.add(new Book("HarryPotterVol.2", 1));
         cart.add(new Book("HarryPotterVol.3", 1));
@@ -73,6 +73,18 @@ public class ShoppingCartTest {
         cart.add(new Book("HarryPotterVol.5", 1));
 
         double expected = 375;
+        double actual = cart.calculate();
+
+        assertEquals(expected, actual, 0.0);
+    }
+
+    @Test
+    public void 一二集各買了一本_第三集買了兩本_價格應為370元() {
+        cart.add(new Book("HarryPotterVol.1", 1));
+        cart.add(new Book("HarryPotterVol.2", 1));
+        cart.add(new Book("HarryPotterVol.3", 2));
+
+        double expected = 370;
         double actual = cart.calculate();
 
         assertEquals(expected, actual, 0.0);
