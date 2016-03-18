@@ -29,6 +29,9 @@ public class ShoppingCart {
         double total = 0;
         total = total + books.stream().mapToDouble(Book::getQty).sum() * 100;
         switch (books.size()) {
+            case 4:
+                total = total * 0.8;
+                break;
             case 3:
                 total = total * 0.9;
                 break;

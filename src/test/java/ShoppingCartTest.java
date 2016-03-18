@@ -58,7 +58,7 @@ public class ShoppingCartTest {
         cart.add(new Book("HarryPotterVol.3", 1));
         cart.add(new Book("HarryPotterVol.4", 1));
 
-        double expected = 270;
+        double expected = 320;
         double actual = cart.calculate();
 
         assertEquals(expected, actual, 0.0);
