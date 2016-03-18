@@ -26,28 +26,30 @@ public class ShoppingCart {
     }
 
     public double calculate() {
-        double total = 0;
-        total = total + books.stream().mapToDouble(Book::getQty).sum() * 100;
-        switch (books.size()) {
+        double sumQty = books.stream().mapToDouble(Book::getQty).sum();
+        double total = sumQty * 100 * getDiscount(books.size());
+        return total;
+    }
+
+    private double getDiscount(int bookQty){
+        double discount = 0;
+        switch (bookQty) {
             case 5:
-                total = total * 0.75;
+                discount = 0.75;
                 break;
             case 4:
-                total = total * 0.8;
+                discount = 0.8;
                 break;
             case 3:
-                total = total * 0.9;
+                discount = 0.9;
                 break;
             case 2:
-                total = total * 0.95;
+                discount = 0.95;
                 break;
             case 1:
-                total = total * 1;
-                break;
-            case 0:
-                total = 0;
+                discount = 1;
                 break;
         }
-        return total;
+        return discount;
     }
 }
