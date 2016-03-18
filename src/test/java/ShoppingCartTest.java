@@ -38,4 +38,16 @@ public class ShoppingCartTest {
 
         assertEquals(expected, actual, 0.0);
     }
+
+    @Test
+    public void 一二三集各買了一本_價格應為270元() {
+        cart.add(new Book("HarryPotterVol.1", 1));
+        cart.add(new Book("HarryPotterVol.2", 1));
+        cart.add(new Book("HarryPotterVol.3", 1));
+
+        double expected = 270;
+        double actual = cart.calculate();
+
+        assertEquals(expected, actual, 0.0);
+    }
 }
